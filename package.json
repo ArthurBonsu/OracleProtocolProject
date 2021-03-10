@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "DEBUG=GasUsed truffle test",
+    "migrate": "truffle migrate",
+    "compile": "truffle compile",
+    "coverage": "solidity-coverage",
+    "node": "ganache-cli -l 0x1fffffffffffff -g 1 --allowUnlimitedContractSize -m \" elephant potato mind luggage remind desk tourist valve license flame favorite tilt\""
+  },
+  "dependencies": {
+    "@davidqhr/ganache-cli": "6.4.3",
+    "bignumber.js": "^7.2.1",
+    "debug": "^4.1.1",
+    "ethereumjs-util": "^5.2.0",
+    "scrypt": "github:barrysteyn/node-scrypt#fb60a8d3c158fe115a624b5ffa7480f3a24b03fb",
+    "truffle": "5.0.22",
+    "truffle-hdwallet-provider": "^1.0.12"
+  },
+  "devDependencies": {
+    "@davidqhr/solidity-coverage": "0.6.0-beta.7",
+    "ethereumjs-abi": "^0.6.7",
+    "ethers": "^4.0.29",
+    "prettier": "1.17.1",
+    "webpack": "^5.24.3"
+  }
+}
