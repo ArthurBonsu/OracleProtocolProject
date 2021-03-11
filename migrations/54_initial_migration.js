@@ -4,6 +4,7 @@ const ExternalFunctions = artifacts.require("ExternalFunctions");
 var GlobalStore = artifacts.require("./GlobalStore.sol");
 var Exchange = artifacts.require("./exchange/Exchange.sol");
 var Relayer = artifacts.require("./exchange/Relayer.sol");
+var Discount = artifacts.require("./exchange/Discount.sol");
 var LendingPool = artifacts.require("./funding/LendingPool.sol");
 var CollateralAccounts = artifacts.require("./funding/CollateralAccounts.sol");
 
@@ -15,7 +16,7 @@ var Consts = artifacts.require("./lib/Consts.sol");
 
 var Requires = artifacts.require("./lib/Requires.sol");
 var SafeMath = artifacts.require("./lib/SafeMath.sol");
-var IStandardToken = artifacts.require("./interfaces/IStandardToken.sol");
+
 
 var Store = artifacts.require("./lib/Store.sol");
 var Events = artifacts.require("./lib/Events.sol");
@@ -28,7 +29,7 @@ var Ownable = artifacts.require(".lib/Ownable.sol");
 var IInterestModel = artifacts.require("./interfaces/IInterestModel.sol");
 var IPriceOracle = artifacts.require("./interfaces/IPriceOracle.sol");
 var ILendingPoolToken = artifacts.require("./interfaces/ILendingPoolToken.sol");
-
+// var IStandardToken = artifacts.require("./interfaces/IStandardToken.sol");
 
 module.exports = function(deployer) {
   //deployer.deploy(SLib);
@@ -49,7 +50,7 @@ module.exports = function(deployer) {
    deployer.link(Requires, BatchActions);
     deployer.link(Transfer, BatchActions);
      deployer.link(Events, BatchActions);
-  deployer.link(BatchActions, IStandardToken);
+ // deployer.link(BatchActions, IStandardToken);
  deployer.link(BatchActions, ExternalFunctions);
 
  
@@ -66,7 +67,7 @@ deployer.link(Transfer,Auctions );
 deployer.link(LendingPool,Auctions );
 deployer.link(CollateralAccounts,Auctions );
 
-deployer.link(Auctions, IStandardToken);
+// deployer.link(Auctions, IStandardToken);
 deployer.link(Auctions, ExternalFunctions);
 
  
@@ -83,7 +84,7 @@ deployer.link(Types, Transfer);
 deployer.link(Requires, Transfer);
 deployer.link(CollateralAccounts, Transfer);
 
-  deployer.link(Transfer, IStandardToken);
+//  deployer.link(Transfer, IStandardToken);
  deployer.link(Transfer, ExternalFunctions);
  
  
@@ -102,14 +103,14 @@ deployer.link(Decimal, Types);
 deployer.link(Types, IInterestModel);
 deployer.link(Types, IPriceOracle);
 deployer.link(Types, ILendingPoolToken);
-  deployer.link(Types, IStandardToken);
+ // deployer.link(Types, IStandardToken);
  deployer.link(Types, ExternalFunctions);
 
 
 // Linking Consts
  deployer.deploy(Consts);
 
- deployer.link(Consts, IStandardToken);
+ // deployer.link(Consts, IStandardToken);
  deployer.link(Consts, ExternalFunctions);
 
 // Linking Requires
@@ -119,18 +120,18 @@ deployer.deploy(Requires);
 deployer.link(Store, Requires);
 deployer.link(Consts, Requires);
 deployer.link(Decimal, Requires);
-deployer.link(IStandardToken, Requires);
+//deployer.link(IStandardToken, Requires);
 deployer.link(CollateralAccounts, Requires);
 
-  deployer.link(Requires, IStandardToken);
+//  deployer.link(Requires, IStandardToken);
  deployer.link(Requires, ExternalFunctions);
 
 
 //Linking SafeMath
 
-  deployer.link(SafeMath);
+  deployer.deploy(SafeMath);
   
-   deployer.link(SafeMath, IStandardToken);
+  // deployer.link(SafeMath, IStandardToken);
  deployer.link(SafeMath, ExternalFunctions);
 
  // Linking Exchange
@@ -147,7 +148,7 @@ deployer.link(Transfer, Exchange);
 deployer.link(Events, Exchange);
 deployer.link(Consts, Exchange);
 
-  deployer.link(Exchange, IStandardToken);
+//  deployer.link(Exchange, IStandardToken);
  deployer.link(Exchange, ExternalFunctions);
 
 
@@ -159,7 +160,7 @@ deployer.link(Store, Relayer);
 deployer.link(Events, Relayer);
 
 
-  deployer.link(Relayer, IStandardToken);
+//  deployer.link(Relayer, IStandardToken);
  deployer.link(Relayer, ExternalFunctions);
 
  // Linking ExternalFunctions 
